@@ -1,0 +1,21 @@
+# scripts/address_tracking.py
+
+import requests
+
+def fetch_address_data(api_url, address):
+    """
+    Fetch data related to a specific address from an API.
+    
+    :param api_url: Base URL of the API
+    :param address: Address to fetch data for
+    :return: JSON response data
+    """
+    url = f'{api_url}/address/{address}'
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    return data
+
+# Example usage:
+# address_data = fetch_address_data('https://api.blockchain.example.com', '0xAddress')
+# print(address_data)
